@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pranav's Portfolio - Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+  </head>
+  <body data-barba="wrapper">
+    <header>
+      <h1>Pranav Sharma</h1>
+      <img id="decor" src="images/decor/lightgreendoodle.png">
+      <nav id="navBar">
+        <a id="home" class="navBox" href="index.html">
+          Home
+        </a>
+        <a id="story" class="navBox" href="aboutme.html">
+          My Story
+        </a>
+        <a id="projects" class="navBox" href="projecttemplate.html">
+          Projects
+        </a>
+      </nav>
+      <div id="selected"></div>
+    </header>
+    <main data-barba="container" data-barba-namespace="about">
+      <h2>Milestones of My Life</h2>
+      <h3>My First Dream Job</h3>
+      <p>
+        The first job I can remember ever wanting was to be an 
+        inventor when I was just beginning school.
+      </p>
+      <h3>Intro to Robotics</h3>
+      <p>
+        By middle school, I had a posse of little nerds like me, 
+        participating in math competitions and all. Some of my 
+        pals had the idea to join a Lego robotics league, so we 
+        teamed up and started competing. I loved the creative 
+        problem solving involved, and began down a long, fun path.
+      </p>
+      <h3>Choosing Computers</h3>
+      <p>
+        In high school, I joined the school's budding robotics 
+        and programming teams, finding fulfillment from learning 
+        new skills, solving interesting problems, developing strong 
+        relationships with my teammates, and taking on leadership 
+        responsibilities. Robotics introduced me to new technical skills,
+        including CAD, 3D printing, laser cutting, even machining, 
+        massively widening my repertoire from the simple power 
+        tools my dad let me use growing up, but both teams improved 
+        my coding ability. I decided with my strengths, along with 
+        my personal interests and hobbies like graphic design and 
+        gaming, that a career in computers would be ideal.
+      </p>
+      <h3>Honing My Skills</h3>
+      <p>
+        college, robotics (minor!), programming, 3d printing
+      </p>
+      <h3>Entering the Workforce</h3>
+      <p>
+        doing cool projects at lockheed, developed two internal apps from scratch, continued dev of another in progress, all using different languages
+      </p>
+      <h3>Cross-Country Creative Renaissance</h3>
+      <p>
+        starting full time at microsoft, stuck at home when covid hit, many project ideas, mainly creative, finding my true passions
+      </p>
+    </main>
+    <footer>
+      <button id="lightToggle" onclick="toggleDarkMode()">
+        <img id="lightToggleImg" src="images/decor/night.png">
+      </button>
+      <div id="bottom"></div>
+    </footer>
+  </body>
+</html>
+

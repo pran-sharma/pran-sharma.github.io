@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pranav's Portfolio - Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+  </head>
+  <body data-barba="wrapper">
+    <header>
+      <h1>Pranav Sharma</h1>
+      <img id="decor" src="images/decor/lightgreendoodle.png">
+      <nav id="navBar">
+        <a id="home" class="navBox" href="index.html">
+          Home
+        </a>
+        <a id="story" class="navBox" href="aboutme.html">
+          My Story
+        </a>
+        <a id="projects" class="navBox" href="projecttemplate.html">
+          Projects
+        </a>
+      </nav>
+      <div id="selected"></div>
+    </header>
+    <main data-barba="container" data-barba-namespace="home">
+      <h2>Portfolio Time!</h2>
+      <h3>About Me</h3>
+      <p>These are my projects. Thanks you very much :)</p>
+      <h3>Featured Projects</h3>
+      <p>Small Table</p>
+      <p>controller configurator, dungeon crawler, robot lawn mower, 1ndividual</p>
+      <div id="bottom"></div>
+    </main>
+    <footer>
+      <button id="lightToggle" onclick="toggleDarkMode()">
+        <img id="lightToggleImg" src="images/decor/night.png">
+      </button>
+    </footer>
+  </body>
+</html>
