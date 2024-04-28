@@ -1,0 +1,79 @@
+<h3>2D Dungeon Crawler PC Game</h3>
+<h4>Design/Development</h4>
+<p>
+  This project was created for a class group project in 2019 
+  using Unity. The game is a fantasy medieval themed dungeon 
+  crawler with Pokémon-inspired combat. The player must engage 
+  in combat, complete quests, and shop for resources to 
+  strengthen their team and delve deeper into the procedurally 
+  generated dungeons and eventually defeat the final boss.
+</p>
+<p>
+  My largest roles on the project were applying and animating 
+  art assets and character movement, developing the dungeon map 
+  and much of the user interface, and generating the playable 
+  dungeon area from my teammate's procedurally generated dungeon 
+  data. This data was represented simply as a binary two-dimensional 
+  array but generating a playable area with seamless 
+  dungeon floors and walls from that data was the most technically 
+  complex part of my work on the game.
+</p>
+<p class="caption">
+  The hub location provides resources for the player, including 
+  a shop, a healing fountain, and non-player characters to provide 
+  quests, and is connected to the dungeon room in which the doors 
+  unlock once the previous dungeon's boss is defeated.
+</p>
+<img class="mainImg" src="images\projects\dungeon\hub.png" alt="hub where the player may shop, rest, seek out quests, or enter the dungeons">
+<p>
+  When I started my work on creating the playable dungeon area, 
+  the programmatic generation of the data for dungeon layouts 
+  was nowhere near ready to test with. I took the opportunity 
+  to quickly learn a bit of Visual Basic scripting to generate 
+  the dungeon layout data I needed from Excel. Essentially, I 
+  filled in cells to look like a top-down map of the dungeon 
+  and from those cells generated the necessary data to represent 
+  the static dungeon floor. Once the procedural generation of 
+  that data was complete, I was able to validate the dungeon, 
+  its boundaries, and its art was generated properly, even in 
+  unique corner cases of strange dungeon layouts I may have 
+  missed in the initial static dungeon testing.
+</p>
+<p class="caption">
+  Excel was used to manually create static dungeon 2D arrays from 
+  filled cells using Visual Basic.
+</p>
+<img class="mainImg" src="images\projects\dungeon\excel.png" alt="Excel spreadsheet for dungeon data generation">
+<p>
+  This work with the dungeon data helped with the next technical 
+  challenge I had in building the map portion of the UI. The 
+  map's purpose was to show the explored area of the dungeon 
+  in a top-down view and show important landmarks, including 
+  the player and the randomly placed stairs to descent down 
+  the dungeon floors. The map functions through three main 
+  mechanics: translating the game objects' absolute coordinates 
+  to relative coordinates, ensuring the map scales properly 
+  to fit the map UI screen, regardless of the procedurally 
+  generated dungeon's shape, and only displaying the parts of 
+  the map which have been visited by the player already.
+</p>
+<p class="caption">
+  The player is spawned into a random location in the dungeon, 
+  with the map only revealing the area visible to them.
+</p>
+<table class="images">
+  <tr>
+    <td><img src="images\projects\dungeon\projects\dungeonstart.png" alt="the player's initial position in the dungeon"></td>
+    <td><img src="images\projects\dungeon\mapbefore.png" alt="the initial dungeon map, only revealing the visible area"></td>
+  </tr>
+</table>
+<p class="caption">
+  The map is updated as the player traverses the dungeon, 
+  showing landmarks like the dungeon stairs.
+</p>
+<table class="images">
+  <tr>
+    <td><img src="images\projects\dungeon\projects\dungeonend.png" alt="the player's position after traversing the dungeon"></td>
+    <td><img src="images\projects\dungeon\mapafter.png" alt="the dungeon map revealing the entire dungeon, including the stairs"></td>
+  </tr>
+</table>

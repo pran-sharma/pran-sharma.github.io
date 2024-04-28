@@ -1,42 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Pranav's Portfolio - Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/decor/head.png">
     <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="app.js"></script>
+    <title>Pranav Sharma - Home</title>
   </head>
   <body data-barba="wrapper">
-    <header>
-      <h1>Pranav Sharma</h1>
-      <img id="decor" src="images/decor/lightgreendoodle.png">
-      <nav id="navBar">
-        <a id="home" class="navBox" href="index.html">
-          Home
-        </a>
-        <a id="story" class="navBox" href="aboutme.html">
-          My Story
-        </a>
-        <a id="projects" class="navBox" href="projecttemplate.html">
-          Projects
-        </a>
-      </nav>
-      <div id="selected"></div>
-    </header>
-    <main data-barba="container" data-barba-namespace="home">
-      <h2>Portfolio Time!</h2>
-      <h3>About Me</h3>
-      <p>These are my projects. Thanks you very much :)</p>
-      <h3>Featured Projects</h3>
-      <p>Small Table</p>
-      <p>controller configurator, dungeon crawler, robot lawn mower, 1ndividual</p>
-      <div id="bottom"></div>
+    <div id="header"></div>
+    <main>
+      <div id="content" data-barba="container" data-barba-namespace="home">
+        <h2>About Me</h2>
+        <section id="about">
+          <p>
+            I'm a skilled, creative <strong>software engineer</strong> with a nearly lifelong 
+            <strong>passion for robotics</strong> and bettering the world. I have experience at 
+            <strong>Lockheed Martin</strong> and <strong>Microsoft</strong>, mostly working 
+            in <strong>C++</strong>. 
+          </p>
+          <h3>My Story</h3>
+          <p>
+            I started my robotics journey by forming a LEGO robotics team with my friends 
+            in middle school, then went on to lead my high school's robotics team to multiple 
+            championships, and ended my academic career with an <strong>intelligent robotic systems 
+            minor</strong> (alongside a <strong>math minor</strong> and my 
+            <strong>computer science BS</strong>) in my three 
+            year <strong>Cum Laude</strong> stint at the University of Central Florida.
+            In order to graduate so quickly, I shortsightedly worked hard in school while 
+            somewhat disregarding the career prospects which lay ahead. Somehow, the single 
+            online job application I sent out landed me at Lockheed Martin, where I worked 
+            during my studies for a bit over a year before graduating.
+          </p>
+          <p>
+            My time at Lockheed was extremely rewarding and fulfilling. I had the opportunities 
+            to work on drones, simulations, sensors, GUIs, and more, allowing me to experience 
+            a wide breadth of domains in quite a short period. I found building <strong>drones</strong> and their 
+            software to be the most riveting, getting to develop <strong>cutting edge technology</strong> in 
+            Lockheed's Missiles and Fire Control <strong>Applied Research</strong> division. I got to work with 
+            every part of the system, including soldering, calibrating, coding, and testing, 
+            both <strong>in the lab and the field</strong>.
+          </p>
+          <p>
+            When my graduation was quickly approaching, I sent out some applications, went 
+            through a few interviews, and was captivated by the allure of big tech. I packed 
+            up my life into my car and headed away from my partner of over two years to Seattle 
+            to work at Microsoft despite only being 
+            told I'd be working in operating systems. I ended up working on <strong>Windows WiFi</strong> for 
+            almost three years, developing my <strong>technical and soft skills</strong> alike, especially as I'd 
+            never really worked as part of a <strong>larger organization</strong> before.
+          </p>
+          <p>
+            As time passed, the distance from my partner proved to be a greater challenge than 
+            my work, so I ended up leaving Microsoft to <strong>move back to Florida</strong>. 
+            I took the time off to enjoy traveling with friends and family and totally decompress 
+            for the first time in years. When the dust settled, 
+            I was faced with my daunting self-imposed unemployment, but also a <strong>shining 
+            opportunity</strong> to pursue my goals and my dreams.
+          </p>
+          <p>
+            I primarily targeted <strong>remote robotics work</strong>, since as the partner of an almost-doctor, 
+            I'd have little to no control over our place of residence in the near future. 
+            Of course, that did limit the job pool, but I found plenty of viable options, 
+            though unfortunately none ultimately found me to be the ideal employee. The months 
+            of <strong>solely rejections</strong> were certainly disheartening, but I understood my <strong>lack of 
+            direct professional experience</strong> in robotics definitely made me a less attractive 
+            candidate.
+          </p>
+          <p>
+            I finally received a job offer out of the blue, without so much as a proper interview, 
+            to work at Microsoft once again, but remotely with a third party contractor. With the 
+            chance to work fully remotely, as well as feeling my emergency fund dwindling, I 
+            jumped at the opportunity. I find myself back in a fairly <strong>comfortable</strong> position, but 
+            I'm still <strong>holding out hope</strong> to find my <strong>dream job</strong>.
+          </p>
+        </section>
+
+        <!-- <h2>My Story</h2>
+        <section id="timeline">
+          <div class="timeline-event">
+            <span class="event-date">2014</span>
+            <p class="event-description">Started robot journey</p>
+          </div>
+          <div class="timeline-event">
+            <span class="event-date">2020</span>
+            <p class="event-description">Art journey</p>
+          </div>
+          <div class="timeline-event">
+            <span class="event-date">2021</span>
+            <p class="event-description">wifi time</p>
+          </div>
+          <div class="timeline-event">
+            <span class="event-date">2022</span>
+            <p class="event-description">design?</p>
+          </div>
+          <div class="timeline-event">
+            <span class="event-date">2023</span>
+            <p class="event-description">quit job</p>
+          </div>
+          <div class="timeline-event">
+            <span class="event-date">2024</span>
+            <p class="event-description">new job</p>
+          </div>
+          <div class="timeline-event">
+            <span class="event-date">2025</span>
+            <p class="event-description">we'll see</p>
+          </div>
+          <div class="timeline-event">
+            <span class="event-date">2026</span>
+            <p class="event-description">in the future</p>
+          </div>
+        </section> -->
+      </div>
     </main>
-    <footer>
-      <button id="lightToggle" onclick="toggleDarkMode()">
-        <img id="lightToggleImg" src="images/decor/night.png">
-      </button>
-    </footer>
+    <div id="footer"></div>
   </body>
 </html>

@@ -1,0 +1,63 @@
+<h3>3D Holographic Display</h3>
+<h4>Status: Work in Progress</h4>
+<h4>Concept</h4>
+<p>
+    The illusion of a 3D image floating in space could 
+    be created by our eyes' <strong>persistence of vision</strong>.
+</p>
+<p>
+    To achieve this, I wanted to <strong>spin a 2D RGB LED matrix</strong> quickly around its 
+    center. If its speed of rotation were measured, every point each LED sweeps 
+    through could be a distinct "pixel" assigned a different RGB value creating 
+    a cylindrical display.
+</p>
+<p>
+    The cylindrical display's polar resolution would depend on how slowly the LED 
+    matrix could spin while still showing a cohesive image and how quickly each 
+    LED could be updated. Making the display with a higher resolution or simply 
+    larger seems trivial, so I decided to create a <strong>small proof of concept</strong>.
+</p>
+<h4>Creation</h4>
+<p>
+    An early obstacle I encountered was <strong>twisting wires</strong>, which could simply 
+    be avoided by using a mounted battery. The extra bulk to spin and need to charge the 
+    device, however, killed that idea. A <strong>slip ring</strong> would also quite simply solve 
+    the issue, allowing wires to enter one side stationarily and leave the other 
+    side completely <strong>unconstrained to spin without tangling</strong>.
+</p>
+<p>
+    I decided to make my life harder and <strong>consolidate</strong> the spinning LED mount, motor 
+    mount, and slip ring into one sleek, compact design. The most difficult part 
+    turned out being the slip ring, but it eventually came together in an <strong>ugly, yet 
+    functional</strong> package.  However, upon adding the motor to my testing, I found the 
+    slip ring I designed, while properly conducting electricity, had far more 
+    rotational friction than my feeble motor could handle and was <strong>far less 
+    functional than it needed to be</strong>. 
+</p>
+<p>
+    Falling back to a tried and true engineering principle - <strong>keeping it simple</strong> - 
+    turned out to be my saving grace. Purchasing a properly engineered slip ring 
+    made the spinning platform and motor mount the (<strong>much easier</strong>) core problems 
+    to solve instead. Decoupling the motor from the LED platform had another 
+    beneficial side effect of allowing the dinky motor to be <strong>geared to impart 
+    more torque</strong>, which it sorely needed.
+</p>
+<p>
+    At this point, any image or animation with infinite polar symmetry, like a ball, could be 
+    displayed, but the "display" is not yet fully functional. It needs to 
+    <strong>measure its rotational velocity</strong> in order to display the proper frame at each 
+    position of rotation. This measurement is also necessary for the display to 
+    have distinct, static sides without spinning the image or 
+    animation unintentionally.
+</p>
+<p>
+    To determine the rate of rotation, the time elapsed during a single spin must 
+    be measured. Common ways to do so include using a reflected light sensor or a 
+    hall effect sensor. I chose to use a hall effect sensor because it was the only 
+    method I thought of when purchasing components, though in hindsight, the spinning 
+    electronics and wires may induce magnetic fields and cause issues with the readings. 
+    Fingers crossed!
+</p>
+<p>
+    Time for some math and programming!
+</p>
