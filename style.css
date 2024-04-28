@@ -97,13 +97,8 @@ main #featured-project {
     margin: auto;
 }
 
-/* img {
-    object-fit: contain;
-    max-width: 100%;
-    max-height: 50vh;
-} */
-
 .mainImg {
+    object-fit: contain;
     max-width: 100%;
     max-height: 50vh;
 }
