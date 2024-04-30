@@ -2,27 +2,184 @@
 <h4>Prelude</h4>
 <p>
     My senior year of undergraduate study quickly came around in my third year of 
-    college, and with that came my senior design capstone project. 
+    college, and with that came my <strong>senior design capstone project</strong>. 
     Despite having a fair bit of practical experience with robotics, from
     LEGO to metal, from friendly competition to national defense, I hadn't quite 
     figured out what goals most motivated me, and without a clear 
     destination in mind, the path to take was even less clear. Therefore, rather 
-    than taking matters into my own hands, I decided to listen to pitches and try 
-    to judge which projects most piqued my interest. A few computer vision projects 
+    than taking matters into my own hands, I decided to listen to pitches 
+    judge which projects most piqued my interest. A few computer vision projects 
     were very intriguing, including monitoring analog gauges and representing their 
     values digitally, and extracting characters, especially those difficult to read, 
-    from historic tombstones. However, I was most compelled by Duke Energy's pitch 
-    to automate their solar field's lawn maintenance with the power of robotics.
+    from historic tombstones. However, I was most compelled by <strong>Duke Energy</strong>'s 
+    and <strong>Orlando Utilities Commission</strong>'s pitch 
+    to <strong>automate their solar field's lawn maintenance</strong> with 
+    the <strong>power of robotics</strong>.
 </p>
+<p class="caption">
+    This robot was brought to you by Duke Energy and OUC.
+</p>
+<table class="images">
+  <tr>
+    <td><img src="images\projects\robomower\ouc.jpg" alt="Orlando Utilities Commission logo"></td>
+    <td><img src="images\projects\robomower\dukeenergy.jpg" alt="Duke Energy logo"></td>
+  </tr>
+</table>
 <h4>Concept</h4>
 <p>
-    We were tasked to devise an <strong>efficient and precise</strong> 
+    Our team was tasked to devise an <strong>efficient and precise</strong> 
     method of <strong>autonomously cutting grass</strong> in 
     a 500 square foot area within 
-    a <strong>field of solar panels</strong> with a robot no larger 
-    than two feet long in any dimension.
+    a <strong>field of solar panels</strong> in under 15 minutes with a 
+    robot no larger than two feet long in any dimension, built with off 
+    the shelf components totalling under $1,500.
+    This was an <strong>interdisciplinary</strong> endeavor, taken on 
+    by a group of <strong>computer science</strong> majors such as myself 
+    alongside another group of <strong>mechanical engineering</strong> 
+    students. We had to come together to describe the <strong>sensing 
+    and computing</strong> equipment necessary and the space required 
+    for them, and to <strong>integrate</strong> the hardware and 
+    software components.  
 </p>
+<p class="caption">
+    Before getting to work, we were brought out to the solar field where 
+    the robot would be deployed. The robot below was our final product.
+</p>
+<table class="images">
+  <tr>
+    <td><img src="images\projects\robomower\solarfield.png" alt="solar panel field we were tasked to mow"></td>
+    <td><img src="images\projects\robomower\finished.png" alt="robotic lawn mower final product"></td>
+  </tr>
+</table>
 <h4>Creation</h4>
 <p>
-    I do SLAM
+    I took on the task of developing the robot's <strong>autonomous 
+    capability</strong>. The core task was clear, but seemed fairly 
+    complex to accomplish: to <strong>comprehensively traverse all 
+    of a given area</strong>. Through my robotics classes I'd taken 
+    before, I was aware of a technique called <strong>simultaneous 
+    localization and mapping</strong>, or <strong>SLAM</strong>. 
+    As the name describes, it allows a robot to <strong>create a map</strong> 
+    of its surroundings while at the same time 
+    <strong>positioning itself</strong> within that map. A commonly 
+    used, well tested method to do so on a 2D plane utilizes a 
+    360-degree LIDAR (light detection and ranging) sensor, or in 
+    layman's terms, a <strong>360-degree laser rangefinder</strong>.
+</p>
+<p class="caption">
+    The most significant sensing and computing components of the robot 
+    were a 360-degree LIDAR, a camera, and an NVIDIA Jetson Nano.
+</p>
+<table class="images">
+  <tr>
+    <td><img src="images\projects\robomower\lidar.jpg" alt="360-degree lidar sensor"></td>
+    <td><img src="images\projects\robomower\nano&cam.jpg" alt="NVIDIA Jetson Nano and camera module"></td>
+  </tr>
+</table>
+<p>
+    Solely LIDAR based SLAM requires obstacles or <strong>landmarks</strong> 
+    for the algorithm to track so the robot may properly orient itself. 
+    Considering this, we sourced a LIDAR with a <strong>sensing range</strong> 
+    significantly exceeding the maximum space between two solar panel 
+    support beams, so the robot may always have multiple landmarks in 
+    its view. The robot's implementation of SLAM was also able to 
+    supplement its <strong>proprioception</strong> using its <strong>motor 
+    encoders</strong>, which sense the amount of <strong>rotation of each 
+    wheel</strong>, and <strong>inertial measurement unit</strong>, 
+    allowing the robot to estimate its <strong>changes
+    in position</strong> without additional external sensing.
+</p>
+<p class="caption">
+    The left side of the screen shows the 3D world the virtual robot is 
+    traveling in, and the right side visualizes the occupancy grid being 
+    built of the 2D slice of the world the LIDAR sees.
+</p>
+<img class="mainImg" src="images/projects/robomower/slam.gif" alt="Gazebo simulation showing occupancy grid being built as the robot explores its environment">
+<p>
+    The robot's <strong>pathing</strong> would determine how its map 
+    would be built, and vice versa. The map was represented by an 
+    <strong>occupancy grid</strong>, which estimates the 
+    <strong>probability</strong> there is an obstacle at any given (x,y) 
+    coordinate. The robot can only "see" a small radius around itself, 
+    and it builds its map as it <strong>explores</strong> the environment. 
+    Therefore, I figured to most accurately traverse the entire area, 
+    it might be best to map out the full area's <strong>bounds</strong> 
+    before comprehensively mowing it, or else the robot's back-and-forth 
+    passes drift away from the intended boundary by the time it reaches 
+    the end of the area. To do so, before traversing across the width of 
+    the region all the way down its length, the robot would first explore 
+    the entire <strong>circumference</strong> of the field to build a 
+    full map and mark points along the boundary.
+</p>
+<p class="caption">
+    The robot was able to map its environment and explore autonomously by 
+    following the line around the boundary.
+</p>
+<img class="mainImg" src="images/projects/robomower/linefollowing_slam.gif" alt="Gazebo simulation showing occupancy grid being built as the robot follows the line on the solar field">
+<p>
+    Despite being able to measure the rotation of each motor and having 
+    a limited view of the environment, driving in 
+    a <strong>perfectly straight</strong> line is extremely difficult, 
+    especially in real-world conditions. Terrain may be <strong>uneven</strong>, 
+    sensor readings may be <strong>inaccurate</strong>, wheel slipping 
+    can occur, along with any other unexpected issue. Our requirements 
+    allowed for <strong>marking the boundary</strong> however we saw fit, 
+    so I opted to use a <strong>computer vision</strong> based approach 
+    where the robot could visually <strong>follow the edge</strong> of the 
+    region with a <strong>painted line</strong> in the grass, such as those used in sports. 
+    The robot could also use a camera for additional safety measures, including 
+    <strong>detecting obstacles</strong> out of the LIDAR's plane of view 
+    or <strong>identifying humans</strong> the robot 
+    must avoid or shut down for.
+</p>
+<!-- PLACEHOLDER FOR LINE FOLLOWING -->
+<p>
+    Using the camera to trace the boundary, the robot marks points 
+    down the <strong>length of the field</strong> at every estimated 
+    <strong>width of the robot</strong>, as well as when the 
+    line's direction changes, marking each <strong>corner</strong>. 
+    Once the robot reaches the starting point again, the robot iterates 
+    through every point from the start of the length to the end, 
+    <strong>back and forth</strong> across the width of the region, 
+    traveling to waypoints at each point. To develop and test the 
+    algorithm, I <strong>simulated</strong> the scenario in Gazebo 
+    with a ROS powered robot with the same motor and sensor configuration 
+    as our real world robot. 
+</p>
+<p class="caption">
+    After building the map, the robot attempted to travel to all the waypoints it 
+    had set as it initally circumnavigated the area. It unfortunately became stuck, 
+    likely due to an issue with the environment model, but manually iterating through 
+    the waypoints showed the expected behavior.
+</p>
+<img class="mainImg" src="images/projects/robomower/waypoint.gif" alt="Gazebo simulation showing the robot attempting to traverse to its waypoints">
+<p>
+    Thankfully, I had that Gazebo simulation to iterate and test on, because 
+    shortly after our project began, the <strong>pandemic</strong> struck, 
+    and our team was no longer able to reconvene. I lost access to both our 
+    physical test platform as well as the actual robot. Both platforms had 
+    an onboard <strong>NVIDIA Jetson Nano</strong> for computing, with the 
+    test robot based on NVIDIA's open source JetBot. I therefore had to 
+    collaborate closely with my CS teammate with the test robot and my ME 
+    teammate with the actual robot who were handling <strong>integration</strong>, 
+    writing <strong>technical documentation</strong> for how the code 
+    should be run and the expected results, along with how I expected 
+    them to integrate the hardware and software.
+</p>
+<h4>Conclusion</h4>
+<p>
+    Although the solution we tried <strong>optimizing</strong> for the 
+    given problem worked well, it is by no means a great solution 
+    for all lawns that would require mowing. However, it is an excellent 
+    <strong>proof of concept</strong> for a <strong>low cost</strong>, 
+    <strong>automated</strong>, <strong>electric lawn mower</strong>. 
+    It could be significantly improved for more general use, such as by 
+    adding more cameras for a <strong>visual SLAM</strong> based approach 
+    to better map space in 3D and improve obstacle detection and avoidance,
+    and adding high-precision <strong>GPS</strong> for enhanced 
+    <strong>localization</strong> and creation of <strong>boundaries</strong>. 
+    Beyond the implications of the project, I personally gained a 
+    deeper understanding of <strong>autonomous robotics</strong>, as well 
+    as more <strong>skills and experience</strong> in the field that I may 
+    draw from in the future, on personal and professional projects alike.
 </p>

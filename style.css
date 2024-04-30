@@ -101,6 +101,9 @@ main #featured-project {
     object-fit: contain;
     max-width: 100%;
     max-height: 50vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .images {
