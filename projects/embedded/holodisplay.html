@@ -6,20 +6,36 @@
     be created by our eyes' <strong>persistence of vision</strong>.
 </p>
 <p>
+    This concept was inspired by a similar existing product on the market which 
+    spins an LED strip to display a holographic 2D image on a circular display. 
+    It is also inspired by a miniature, bespoke invention by Tim Alex Jacobs, which 
+    aimed to achieve a similar result to this project, but in the tiny form factor 
+    of a candle. The project's successful demo and detailed writeup can be found on 
+    their <a href="https://mitxela.com/projects/candle" target="_blank">website</a>.
+</p>
+<p class="caption">
+    On the left is a commercial 2D holographic display, and on the right is an 
+    experimental tiny 3D holographic display.
+</p>
+<table class="images">
+  <tr>
+    <td><img src="images/projects/holodisplay/2dspinner.jpg" alt="commercial 2d holographic display"></td>
+    <td><img src="images/projects/holodisplay/mitxela.jpg" alt="tiny volumetric display by mitxela"></td>
+  </tr>
+</table>
+<p>
     To achieve this, I wanted to <strong>spin a 2D RGB LED matrix</strong> quickly around its 
     center. If its speed of rotation were measured, every point each LED sweeps 
     through could be a distinct "pixel" assigned a different RGB value creating 
     a cylindrical display.
-</p>
-<p>
-    The cylindrical display's polar resolution would depend on how slowly the LED 
+    The display's polar resolution would depend on how slowly the LED 
     matrix could spin while still showing a cohesive image and how quickly each 
     LED could be updated. Making the display with a higher resolution or simply 
     larger seems trivial, so I decided to create a <strong>small proof of concept</strong>.
 </p>
 <h4>Creation</h4>
 <p>
-    An early obstacle I encountered was <strong>twisting wires</strong>, which could simply 
+    An early design constraint I encountered was <strong>twisting wires</strong>, which could simply 
     be avoided by using a mounted battery. The extra bulk to spin and need to charge the 
     device, however, killed that idea. A <strong>slip ring</strong> would also quite simply solve 
     the issue, allowing wires to enter one side stationarily and leave the other 
@@ -52,8 +68,9 @@
 </p>
 <p>
     To determine the rate of rotation, the time elapsed during a single spin must 
-    be measured. Common ways to do so include using a reflected light sensor or a 
-    hall effect sensor. I chose to use a hall effect sensor because it was the only 
+    be measured. Common ways to do so include using a hall effect sensor or some kind 
+    of light sensor to sense every time a marker on the spinning object passes the 
+    stationary sensor. I chose to use a hall effect sensor because it was the only 
     method I thought of when purchasing components, though in hindsight, the spinning 
     electronics and wires may induce magnetic fields and cause issues with the readings. 
     Fingers crossed!
