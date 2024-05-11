@@ -1,0 +1,42 @@
+<h3>Light Painting Robot Arm</h3>
+<h4>Status: Work in Progress</h4>
+<h4>Concept</h4>
+<p>
+    A <strong>robot arm</strong> with a light on its end could be controlled to 
+    draw precise paths and create beautiful and colorful <strong>long exposure</strong> 
+    images with a technique commonly referred to as <strong>light painting</strong>.
+</p>
+<p class="caption">
+    I 3D printed a freely available robot arm model so I could 
+    primarily focus on programming its movement.
+</p>
+
+<img class="mainImg" src="images/projects/robotarm/robotarm.jpg" alt="3D printed 3-DOF robot arm with LEDs on its end">
+<h4>Creation</h4>
+<p>
+    I wanted to make <strong>software development</strong> the priority of this 
+    project, so instead of designing my own robot arm, I ordered some 
+    cheap servo motors and found a <strong>fully 3D-printable model</strong> 
+    so I wouldn't need to get extra hardware to add even 
+    more project parts to my already cluttered small apartment. 
+    I <strong>3D printed</strong> the robot's parts piece by piece, finding parts 
+    I needed to improve or change. Obviously, a way to mount the RGB LED strip at the 
+    arm's end was necessary. Once I iterated my way to a working 3-DOF robot arm, 
+    I set to programming.
+</p>
+<p class="caption">
+    The first two designs I had the robot make were a cute smiley face and 
+    a "hire me" sign to try to promote my LinkedIn.
+</p>
+<table class="images">
+  <tr>
+    <td><img src="images/projects/robotarm/smileyface.jpg" alt="a long exposure photograph of a smiley face"></td>
+    <td><img src="images/projects/robotarm/hireme.jpg" alt='a long exposure photograph of a sign saying "Hire me"'></td>
+  </tr>
+</table>
+<p>
+    To direct the motion of the robot arm, I'd have to build up its capabilities to make it 
+    progressively easier to control. I first figured out how to smoothly move the servos 
+    to any given angle, then calculated the angles the elbow and shoulder servos should 
+    move to in order to move to any (x,y) coordinate with its origin at the shoulder.
+</p>
